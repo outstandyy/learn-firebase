@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { addNewTask, getData } from "../helpers/database";
-import { retrieveDocs } from "../helpers/firestore";
+import { documentWrite, retrieveDocs } from "../helpers/firestore";
 
 function AddTask() {
 	const [input, setInput] = useState({ task: "", difficulty: "easy" });
@@ -17,11 +16,11 @@ function AddTask() {
 
 		let { task, difficulty } = input;
 
-		addNewTask(task, difficulty, setInput);
+		documentWrite(task, difficulty, setInput);
 	};
 
 	useEffect(() => {
-		retrieveDocs();
+		retrieveDocs().then();
 	}, []);
 
 	return (

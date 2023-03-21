@@ -1,9 +1,10 @@
-import { getAuth } from "firebase/auth";
-import React from "react";
-import AddTask from "../components/AddTask";
-import { logOut } from "../helpers/auth";
-import { deleteDocument } from "../helpers/firestore";
-import { firebaseApp } from "../services/firebase";
+import { getAuth } from 'firebase/auth';
+import React from 'react';
+import AddTask from '../components/AddTask';
+import AddFile from '../components/AddFile';
+import { logOut } from '../helpers/auth';
+import { deleteDocument } from '../helpers/firestore';
+import { firebaseApp } from '../services/firebase';
 
 function Home() {
 	const auth = getAuth(firebaseApp);
@@ -21,23 +22,25 @@ function Home() {
 	return (
 		<div className="home">
 			<p>
-				Currently signed in as {auth.currentUser.email}
-				<br /> Display name:{" "}
-				{auth.currentUser.displayName
+				Currently signed in as { auth.currentUser.email }
+				<br/> Display name:{ ' ' }
+				{ auth.currentUser.displayName
 					? auth.currentUser.displayName
-					: "Update profile"}
+					: 'Update profile' }
 			</p>
-			<button title="signout" aria-label="signout" onClick={handleClick}>
+			<button title="signout" aria-label="signout" onClick={ handleClick }>
 				Signout
-			</button>{" "}
+			</button>
+			{ ' ' }
 			<button
 				title="delete document"
 				aria-label="signout"
-				onClick={handleDelete}
+				onClick={ handleDelete }
 			>
 				Delete Document
 			</button>
-			<AddTask />
+			<AddTask/>
+			<AddFile/>
 		</div>
 	);
 }

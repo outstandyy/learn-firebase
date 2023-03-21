@@ -18,9 +18,9 @@ import { firebaseApp } from '../services/firebase';
 
 const firestore = getFirestore();
 
-if (window.location.hostname === 'localhost') {
-	connectFirestoreEmulator(firestore, 'localhost', '8080');
-}
+// if (window.location.hostname === 'localhost') {
+// 	connectFirestoreEmulator(firestore, 'localhost', '8080');
+// }
 
 const docRef = doc(firestore, 'users/test@educative.io');
 const colRef = collection(firestore, 'tasks');
